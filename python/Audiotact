@@ -1,0 +1,52 @@
+#!/usr/bin/python
+# -*- coding: utf8 -*-
+
+'''
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+'''
+
+#Contient les fonctions, classes et variables d'Audiotact
+from audiotact_functions import *
+
+source_dir = xdg_vars_reader(1) #renvoie le dossier source (voir correspondance index/dossier)
+
+#instantiation et écoute
+socket_events = socket_listener()
+socket_events.start()
+
+#Initialise la base de données
+audiotact_db_init()
+
+#Suppression des fichiers
+remove_all_files()
+
+#Vérifie la présence de périphériques au démarrage
+devices_at_start()
+
+#Lance le thread de récupération des fichiers
+files_to_send = get_files()
+files_to_send.start()
+
+#Configuration du thread de gestion des événements USB 
+context = Context()
+monitor = Monitor.from_netlink(context)
+monitor.filter_by("block", device_type="partition")
+#Lancement du thread
+observer = MonitorObserver(monitor, callback=devices_events, name='monitor-observer')
+observer.daemon
+observer.start()	
+
+while 1:
+	#queue_manager()
+	time.sleep(1)

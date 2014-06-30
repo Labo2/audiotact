@@ -1,0 +1,54 @@
+/*
+
+ Copyright (c) Ampache.org
+ All rights reserved.
+
+ This program is free software; you can redistribute it and/or
+ modify it under the terms of the GNU General Public License v2
+ as published by the Free Software Foundation
+
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with this program; if not, write to the Free Software
+ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+
+*/
+/*****************************************************************************/
+/* Base Definitions, may be overwridden by themes
+/*****************************************************************************/
+
+/*****************
+ * Tag Definitions
+ *****************/
+
+.tag_size1 { 
+	font-size:.6em;
+} 
+.tag_size2 { 
+	font-size:.8em; 
+} 
+.tag_size3 { 
+	font-size:1em; 
+} 
+.tag_size4 { 
+	font-size:1.2em; 
+} 
+
+a.tag_size1, a.tag_size2, a.tag_size3, a.tag_size4 { text-decoration: none; } 
+
+.hover-add:hover { color: #347C17; } 
+.hover-remove:hover { color: #FF0000; } 
+
+/*****************
+ * Generic / Misc 
+ *****************/
+.item_on { 
+	color: #347C17;
+}
+.item_off { 
+	color: #FF0000; 
+} 

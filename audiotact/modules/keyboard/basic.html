@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>Virtual Keyboard Basic Demo</title>
+
+	<!-- demo -->
+	<link href="demo/demo.css" rel="stylesheet">
+
+	<!-- jQuery & jQuery UI + theme (required) -->
+	<link href="http://code.jquery.com/ui/1.9.0/themes/ui-darkness/jquery-ui.css" rel="stylesheet">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.js"></script>
+	<script src="http://code.jquery.com/ui/1.9.0/jquery-ui.min.js"></script>
+
+	<!-- keyboard widget css & script (required) -->
+	<link href="css/keyboard.css" rel="stylesheet">
+	<script src="js/jquery.keyboard.js"></script>
+
+	<!-- keyboard extensions (optional) -->
+	<script src="js/jquery.mousewheel.js"></script>
+	<script src="layouts/french.js" charset="utf-8"></script>
+	<!--
+	<script src="js/jquery.keyboard.extension-typing.js"></script>
+	<script src="js/jquery.keyboard.extension-autocomplete.js"></script>
+	-->
+
+	<!-- initialize keyboard (required) -->
+	<script>
+		$(function(){
+			$('input').keyboard({
+				// *** change keyboard language & look ***
+				layout       : 'french-azerty-2',
+  customLayout : { default: ['{cancel}'] },
+display : {
+		'a'      : '\u2714:Valider (Shift-Enter)', // check mark - same action as accept
+		'accept' : 'Valider:Valider (Shift-Enter)',
+		'alt'    : 'AltGr:Charact\u00e8re alternatif',
+		'b'      : '\u2190:Suppr arri\u00e8re',    // Left arrow (same as &larr;)
+		'bksp'   : '\u2190Suppr:Suppr arri\u00e8re',
+		'c'      : '\u2716:Annuler', // big X, close - same action as cancel
+		'cancel' : 'Annuler:Annuler (\u00c9chap)',
+		'clear'  : 'C:Effacer',             // clear num pad
+		'combo'  : '\u00f6:Bacsuler les touches combo',
+		'dec'    : '.:Decimal',           // decimal point for num pad (optional), change '.' to ',' for European format
+		'e'      : '\u21b5:Entr\u00e9e',        // down, then left arrow - enter symbol
+		'enter'  : 'Entr\u00e9e:Entr\u00e9e',
+		'lock'   : '\u21ea Verr Mag:Verouillage majuscule', // caps lock
+		's'      : '\u21e7:Majuscule',        // thick hollow up arrow
+		'shift'  : 'Maj:Majuscule',
+		'sign'   : '\u00b1:Change de signe',  // +/- sign for num pad
+		'space'  : '&nbsp;:Espace',
+		't'      : '\u21e5:Tabulation',          // right arrow to bar (used since this virtual keyboard works with one directional tabs)
+		'tab'    : '\u21e5 Tab:Tabulation'       // \u21b9 is the true tab symbol (left & right arrows)
+	},
+	// Message added to the key title while hovering, if the mousewheel plugin exists
+	wheelMessage : 'Utiliser la molette de la souris pour voir les autres lettres',
+  });
+		});
+	</script>
+
+</head>
+
+<body>
+
+	<!-- Links to other demo pages & docs -->
+	<div id="nav">
+		<a href="index.html">Main Demo</a>
+		<a class="current" href="basic.html">Basic</a>
+		<a href="mobile.html">Mobile</a>
+		<a href="layouts.html">Layouts</a>
+		<a href="navigate.html">Navigate</a>
+		<a href="calculator.html">Calculator</a>
+		<a class="play" href="http://jsfiddle.net/Mottie/MK947/">Playground</a>
+		<a class="git" href="https://github.com/Mottie/Keyboard/wiki">Documentation</a>
+		<a class="git" href="http://github.com/Mottie/Keyboard/downloads">Download</a>
+		<a class="issue" href="https://github.com/Mottie/Keyboard/issues">Issues</a><br><br>
+	</div>
+	<!-- End Links -->
+
+	<div id="wrap"> <!-- wrapper only needed to center the input -->
+
+		<!-- keyboard input -->
+		<input id="keyboard" type="text">
+
+	</div> <!-- End wrapper -->
+
+</body>
+
+</html>
